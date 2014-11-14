@@ -1,0 +1,195 @@
+html {
+  font-family: 'Droid Sans', sans-serif;
+  max-width: 950px;
+  margin: 5px auto;
+}
+.c-col {
+  padding-top: 10px;
+  min-width: 925px;
+}
+.c-col h2 {
+  text-align: center;
+  font-size: 26px;
+  font-variant: small-caps;
+}
+.c-col h3 {
+  text-align: center;
+  font-size: 22pt;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+.c-col h4 {
+  font-size: 18pt;
+  text-align: center;
+  font-variant: small-caps;
+}
+.c-col h5 {
+  text-align: center;
+  font-style: italic;
+  font-size: 12pt;
+}
+.c-col ul li {
+  text-align: center;
+  line-height: 25px;
+  margin-right: 25px;
+  list-style: none;
+  font-size: 14pt;
+}
+.c-col a {
+  color: #fff;
+  text-decoration: none;
+  font-variant: small-caps;
+  font-size: 15px;
+  font-weight: bold;
+}
+.c-col a:hover {
+  color: #ffd700;
+}
+.c-col p {
+  margin-left: 200px;
+}
+.tour {
+  margin-left: 355px;
+  width: 200px;
+  padding: 3px 12px 3px;
+  background: #0350a3;
+/* Old browsers */
+  background: -moz-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0350a3), color-stop(11%, #0350a3), color-stop(50%, #0066c6), color-stop(88%, #0350a3), color-stop(100%, #0350a3));
+/* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* IE10+ */
+  background: linear-gradient(to bottom, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* W3C */
+  border: 3px groove #bbb;
+  border-radius: 6%;
+  box-shadow: 2px 2px 6px 1px #000;
+  text-shadow: 1px 1px 2px #000;
+}
+#sign {
+  width: 265px;
+  height: 201px;
+  margin-left: 340px;
+  border: 5px groove #0061b5;
+}
+#lodge {
+  width: 325px;
+  height: 176px;
+  margin-left: 305px;
+  margin-bottom: 12px;
+  border: 5px groove #0061b5;
+}
+input[type="radio"] {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#postmsg {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#meet,
+#event {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  resize: none;
+  border: 4px groove #0061b5;
+}
+#event {
+  width: 400px;
+  height: 60px;
+}
+#meet {
+  width: 600px;
+  height: 90px;
+}
+#pass,
+#msg {
+  margin: 20px 20px 0px 10px;
+  text-align: center;
+}
+.simple_row {
+  height: 25px;
+  border-bottom-style: groove;
+  border-width: 2px;
+  border-color: #0061b5;
+}
+.post {
+  margin-top: 20px;
+  padding: 2px 20px 2px;
+  background: #0350a3;
+/* Old browsers */
+  background: -moz-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0350a3), color-stop(11%, #0350a3), color-stop(50%, #0066c6), color-stop(88%, #0350a3), color-stop(100%, #0350a3));
+/* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* IE10+ */
+  background: linear-gradient(to bottom, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%);
+/* W3C */
+  border: 3px groove #bbb;
+  border-radius: 6%;
+  color: #fff;
+  text-decoration: none;
+  font-variant: small-caps;
+  font-size: 18px;
+  box-shadow: 2px 2px 6px 1px #000;
+  text-shadow: 1px 1px 2px #000;
+  text-align: center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+#pdf {
+  width: 30px;
+  margin-left: 10px;
+}
+#html {
+  width: 30px;
+  margin-left: 10px;
+}
+#gallery {
+  margin-left: 20px;
+  width: 32px;
+}
+#email {
+  width: 50px;
+  margin-left: 450px;
+}
+iframe {
+  margin-left: 265px;
+}
+#faq,
+#links {
+  width: 640px;
+  height: 480px;
+  margin-top: 20px;
+  margin-left: 155px;
+  border: 1px solid #000;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+#faq ul li,
+#links ul li {
+  margin-right: 25px;
+  font-size: 10pt;
+}
+#faq a,
+#links a {
+  text-decoration: none;
+  color: #000;
+}
+#faq a:hover,
+#links a:hover {
+  color: #ffd700;
+}
