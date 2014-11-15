@@ -45,7 +45,7 @@ if (app.get('env') === 'development') {
         });
     });
 }
-
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -56,9 +56,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
 if (process.mainModule === module) {
-    http.createServer(app).listen(3000, function() {
+    http.createServer(app).listen(port, function() {
         console.log("Express server listening on port 3000");
     });
 }
