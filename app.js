@@ -59,7 +59,7 @@ app.use(function(err, req, res, next) {
 
 if (process.mainModule === module) {
     http.createServer(app).listen(port, ip, function() {
-        console.log("Express server listening on port"+port);
+        console.log("Express server listening on port "+port);
     });
 }
 

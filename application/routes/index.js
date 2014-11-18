@@ -49,6 +49,10 @@ router.get('/links', function(req, res) {
 		menuItem: "links"
 		});
 });
-
+router.get('/tour', function(req, res) {
+	res.render('tour', {
+		title: 'Spring Hill Masonic Lodge',
+	});
+});
 
 module.exports = router;
