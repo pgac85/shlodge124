@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var http = require("http");
 var path = require("path");
 var fs = require('fs');
+var mongodb = require("./mongodb.js");
 var routes = require('./application/routes/index');
 var app = express();
 
@@ -45,8 +46,16 @@ if (app.get('env') === 'development') {
         });
     });
 }
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
-var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
+mongodb.init(function (err, results) {
+    if (err) {
+        console.error("FATAL ERROR INIT:");
+        console.error(err);
+        return process.exit(-1);
+    }
+});
+var port = process.env.OPENSHIFT_NODEJS_PORT;
+var ip = process.env.OPENSHIFT_NODEJS_IP;
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -58,9 +67,15 @@ app.use(function(err, req, res, next) {
 });
 
 if (process.mainModule === module) {
-    http.createServer(app).listen(port, ip, function() {
-        console.log("Express server listening on port "+port);
-    });
+    if (process.env.NODE_ENV === "production") {
+        http.createServer(app).listen(port, ip, function () {
+            console.log("Express server listening on port " + port);
+        });
+    } else {
+        http.createServer(app).listen(3000, function() {
+            console.log("Express server listening on port 3000");
+        });
+    }
 }
 
 module.exports = app;
