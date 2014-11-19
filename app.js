@@ -47,7 +47,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-mongodb.init(function (err, results) {
+mongodb.init(function (err) {
     if (err) {
         console.error("FATAL ERROR INIT:");
         console.error(err);
