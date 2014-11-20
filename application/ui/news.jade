@@ -13,14 +13,14 @@ block content
 				tr.simple_row
 					td
 						label Message:
-							input(id="msg" type="text" size="40")
+							input(id="message" name="message"  type="text" size="40")
 						label Event
 							input(type="radio" name="post" value="event")
 						label Stated Meeting
 							input(type="radio" name="post" value="statmeet")
-				tr.simple_row
+				tr.simple_row2
 					td
 						label Passphrase:
 							input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
 							input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10")
-			input(disabled type="submit" value="Post" class="post")
+			input(type="submit" value="Post" class="post")

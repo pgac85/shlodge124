@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pass = require("../../repos/pass");
+var messages = require("../../repos/messages");
 var bcrypt = require("bcrypt");
 
 /* GET home page. */
@@ -17,9 +18,10 @@ router.get('/news', function(req, res) {
 		menuItem: "news"
 		});
 });
-router.post('/news', function(req, res) {
-	var passphrase = req.body.passphrase;
-	var brother = req.body.name;
+router.post('/news', function(req, res, cb) {
+	var passphrase, brother, message;
+	passphrase = req.body.passphrase;
+	brother = req.body.name;
 	pass.findByBrother(brother, function(err, passport) {
 		if (err) {
 			return cb(err);
@@ -28,10 +30,14 @@ router.post('/news', function(req, res) {
 			if (err) {
 				return cb(err);
 			}
-			if (hash === passport.password) {
-				return cb(null, passport);
-			} else {
-				return cb(null, null);
+			if (hash === passport.pass) {
+				message = {};
+				message.msg = req.body.message;
+				message.type = req.body.post;
+				messages.create(message, function (err, results) {
+					if (err) throw err;
+					return res.redirect("/news/");
+				});
 			}
 		});
 	});
