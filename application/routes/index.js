@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var pass = require("../../repos/pass");
+var bcrypt = require("bcrypt");
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -15,7 +17,25 @@ router.get('/news', function(req, res) {
 		menuItem: "news"
 		});
 });
-
+router.post('/news', function(req, res) {
+	var passphrase = req.body.passphrase;
+	var brother = req.body.name;
+	pass.findByBrother(brother, function(err, passport) {
+		if (err) {
+			return cb(err);
+		}
+		bcrypt.hash(passphrase, passport.salt, function(err, hash) {
+			if (err) {
+				return cb(err);
+			}
+			if (hash === passport.password) {
+				return cb(null, passport);
+			} else {
+				return cb(null, null);
+			}
+		});
+	});
+});
 router.get('/history', function(req, res) {
 	res.render('history', { 
 		title: 'Spring Hill Masonic Lodge',

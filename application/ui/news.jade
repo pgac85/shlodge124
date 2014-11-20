@@ -11,7 +11,7 @@ block content
 			textarea(id="meet" readonly)
 			table#postmsg
 				tr.simple_row
-					td				
+					td
 						label Message:
 							input(id="msg" type="text" size="40")
 						label Event
@@ -19,7 +19,8 @@ block content
 						label Stated Meeting
 							input(type="radio" name="post" value="statmeet")
 				tr.simple_row
-					td				
-						label Password:
-							input(id="pass" type="password" name="pass" size="10" maxlength="10")
+					td
+						label Passphrase:
+							input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
+							input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10")
 			input(disabled type="submit" value="Post" class="post")
