@@ -1,38 +1,44 @@
 var express = require('express');
-var path = require('path');
+var http = require("http");
+var path = require("path");
+var fs = require('fs');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var http = require("http");
-var path = require("path");
-var fs = require('fs');
+var session = require('express-session');
 var mongodb = require("./mongodb.js");
-var routes = require('./application/routes/index');
+var application = require('./application');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, '/application/ui/'));
 app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname + '/application/ui/images/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(require('stylus').middleware(path.join(__dirname, '/application/ui/')));
-app.use(express.static(path.join(__dirname, '/application/ui/')));
+app.use(cookieParser("567db43d7bdf54ad1f6t-eb37248fcd0-71b6-11e443752fa9d3eaf5b2d43559308ed-fa92377c3974c800200c9a6"));
+app.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: '7248fCD071b611A4D82f80800200CR866'
+}));
 
-app.use('/', routes);
-app.use('/history/pdf', express.static(__dirname + '/application/ui/pdf/'));
+app.use(function(req, res, next) {
+    res.locals.errMessages = req.session.errMessages;
+    delete req.session.errMessages;
+    res.locals.messages = req.session.messages;
+    delete req.session.messages;
+    return next();
+});
+
+app.use(application);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
-
 // error handlers
 
 // development error handler
@@ -46,16 +52,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-
-mongodb.init(function (err) {
-    if (err) {
-        console.error("FATAL ERROR INIT:");
-        console.error(err);
-        return process.exit(-1);
-    }
-});
-var port = process.env.OPENSHIFT_NODEJS_PORT;
-var ip = process.env.OPENSHIFT_NODEJS_IP;
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -65,6 +61,17 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+mongodb.init(function (err) {
+    if (err) {
+        console.error("FATAL ERROR INIT:");
+        console.error(err);
+        return process.exit(-1);
+    }
+});
+
+var port = process.env.OPENSHIFT_NODEJS_PORT;
+var ip = process.env.OPENSHIFT_NODEJS_IP;
 
 if (process.mainModule === module) {
     if (process.env.NODE_ENV === "production") {

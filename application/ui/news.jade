@@ -4,23 +4,28 @@ block content
 	include includes/lodge_template
 	div.c-col
 		h2 Masonic Trestleboard
-		form(class="trestle" action="/news/" name="msgPost" method="POST")
-			h4 Charity Events and Masonic Dinners
-			textarea(id="event" readonly)
-			h4 Stated Meetings and Lodge Work
-			textarea(id="meet" readonly)
-			table#postmsg
-				tr.simple_row
-					td
-						label Message:
-							input(id="message" name="message"  type="text" size="40")
-						label Event
-							input(type="radio" name="post" value="event")
-						label Stated Meeting
-							input(type="radio" name="post" value="statmeet")
-				tr.simple_row2
-					td
-						label Passphrase:
-							input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
-							input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10")
-			input(type="submit" value="Post" class="post")
+		table#event
+			tr
+				th(class="ac", colspan="3") Charity Events and Masonic Dinners
+			tr
+				th Event
+				th Date
+
+			each event in events
+				tr
+					td= event.msg
+					td= event.date
+		table#msg
+			tr
+				th(class="ac", colspan="3") Masonic Work
+			tr
+				th Date
+				th Message
+				th Type
+			each msg in msgs
+				tr
+					td= msg.date
+					td= msg.msg
+					td= msg.type
+		div.manage
+			a(href="/post") Trestleboard Manager

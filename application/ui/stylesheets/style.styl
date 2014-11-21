@@ -43,10 +43,12 @@ html
 			color:gold;
 	p
 		margin-left:200px
-.tour
+.tour,
+.manage
 	margin-left: 355px;
 	width: 200px;
 	padding:3px 12px 3px;
+	text-align: center;
 	background: #0350a3; /* Old browsers */
 	background: -moz-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0350a3), color-stop(11%,#0350a3), color-stop(50%,#0066c6), color-stop(88%,#0350a3), color-stop(100%,#0350a3)); /* Chrome,Safari4+ */
@@ -76,38 +78,71 @@ html
 
 //NEWS
 
-input[type="radio"]
-	margin-left: 10px;
-	margin-right: 10px;
-#postmsg
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-#meet, #event 
-	display:block;
-	margin-right: auto;
-	margin-left: auto;
-	resize:none;
-	border:4px groove #0061B5
+select
+	padding-left: 5px;
+#msgPost
+	margin: 0px auto;
+
+#msg, #event
+	margin: 30px auto 40px;
+	width: 700px;
+	background: #ffffff
+	line-height 20px
+	border: 1px solid #3b4f71
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
+	-moz-box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
+	box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
+	tr
+		&:first-child
+			font-weight: 600
+			font-variant: small-caps
+			font-size: 15pt;
+			th
+				color: white;
+				height: 30px;
+				background: #0350a3; /* Old browsers */
+				background: -moz-linear-gradient(top, #0350a3 0%, #0350a3 11%, #0066c6 50%, #0350a3 88%, #0350a3 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0350a3), color-stop(11%,#0350a3), color-stop(50%,#0066c6), color-stop(88%,#0350a3), color-stop(100%,#0350a3)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, #0350a3 0%,#0350a3 11%,#0066c6 50%,#0350a3 88%,#0350a3 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, #0350a3 0%,#0350a3 11%,#0066c6 50%,#0350a3 88%,#0350a3 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, #0350a3 0%,#0350a3 11%,#0066c6 50%,#0350a3 88%,#0350a3 100%); /* IE10+ */
+				background: linear-gradient(to bottom, #0350a3 0%,#0350a3 11%,#0066c6 50%,#0350a3 88%,#0350a3 100%); /* W3C */
+				padding-bottom 8px
+			&:hover
+				background-color transparent
+		&:nth-child(even)
+			background-color #f9f9f9
+		a
+			display: block
+			width: 100%
+			color #5b5b5b
+			&:hover
+				color #e5e5e5
+		&:hover
+			background-color #d6d6d6
+		th.ac
+			text-align center
+		td
+			text-align left
+			padding-left: 15px
 
 #event
-	width: 400px;
-	height: 60px;
-
-#meet
-	width:600px;
-	height:90px;
-
+	td
+		text-align: center !important
 #passphrase,
-#message
+#message,
+select
+input[type="text"]
 	margin: 20px 20px 0px 10px;
-	text-align: center;
 .simple_row2,
 .simple_row
 	height: 25px;
 .simple_row2
 	float: left;
-	margin-left: 165px;
+	margin-left: 75px;
 	margin-bottom: 25px;
 .post
 	margin-top: 20px;
@@ -169,3 +204,18 @@ iframe
 			color:gold;
 .fotorama
 	margin-left: 175px;
+#ui-datepicker-div
+	font-size: 12px
+
+#flash-alert, #error-alert
+	position: absolute
+	text-transform uppercase
+	text-align: center
+	margin-top: 65px
+	margin-left: 45px
+	min-width 960px
+
+#error-alert
+	color: red
+#flash-alert
+	color: green

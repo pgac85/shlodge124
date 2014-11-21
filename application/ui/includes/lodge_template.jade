@@ -42,8 +42,17 @@ body
 					- else
 						a(href='/links/') Links
 	div.col-cont
+		- if (errMessages)
+			div#error-alert
+				- for message in errMessages
+					span= message
+		- if (messages)
+			div#flash-alert
+				- for message in messages
+					span= message
 		div.l-col
 			img(id="pillar" src="/images/pillarr.png" alt="pillar")
+
 		div.r-col
 			img(id="pillar" src="/images/pillarl.png" alt="pillar")
 
