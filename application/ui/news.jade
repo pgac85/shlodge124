@@ -6,26 +6,44 @@ block content
 		h2 Masonic Trestleboard
 		table#event
 			tr
-				th(class="ac", colspan="3") Charity Events and Masonic Dinners
+				th(class="ac", colspan="4") Charity Events and Masonic Dinners
 			tr
 				th Event
 				th Date
-
+				th
 			each event in events
 				tr
 					td= event.msg
 					td= event.date
+					td.ac
+						div(id="dialog-1", title="Delete Message")
+							form(class="delete-item", action="/news/" + event._id + "?_method=DELETE", method="POST", data-confirm="Are you sure you want to delete this Message?")
+								label Password:
+									input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
+									input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10" required)
+								input(type="submit" value="Delete")
+						button(id="opener")
 		table#msg
 			tr
-				th(class="ac", colspan="3") Masonic Work
+				th(class="ac", colspan="4") Masonic Work
 			tr
 				th Date
 				th Message
 				th Type
+				th
 			each msg in msgs
 				tr
 					td= msg.date
 					td= msg.msg
 					td= msg.type
+					td.ac
+						div(id="dialog-2", title="Delete Message")
+							form(class="delete-item", action="/news/"+msg._id+"?_method=DELETE", method="POST", data-confirm="Are you sure you want to delete this Message?")
+								label Password:
+									input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
+									input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10" required)
+								input(type="submit" value="Delete")
+						button(id="opener2")
 		div.manage
 			a(href="/post") Trestleboard Manager
+

@@ -18,3 +18,9 @@ exports.pass = function(brother, passphrase, cb) {
         });
     });
 };
+
+exports.error = function(req, res) {
+    res.render('404', {
+        title: "Error: Page not Found"
+    });
+};

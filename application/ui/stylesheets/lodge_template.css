@@ -35,7 +35,6 @@ header h1 {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: 1px 1px 1px #bbb;
 }
 header h2 {
   color: #fff;
@@ -87,7 +86,6 @@ nav li a {
   font-size: 18px;
   font-weight: bold;
   box-shadow: 2px 2px 6px 1px #000;
-  text-shadow: 1px 1px 2px #000;
 }
 .col-cont {
   margin-left: -60px;

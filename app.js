@@ -2,9 +2,9 @@ var express = require('express');
 var http = require("http");
 var path = require("path");
 var fs = require('fs');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongodb = require("./mongodb.js");
@@ -16,6 +16,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 app.use(cookieParser("567db43d7bdf54ad1f6t-eb37248fcd0-71b6-11e443752fa9d3eaf5b2d43559308ed-fa92377c3974c800200c9a6"));
 app.use(session({
     resave: true,
@@ -39,28 +40,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-// error handlers
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
 
 mongodb.init(function (err) {
     if (err) {

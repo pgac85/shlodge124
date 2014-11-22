@@ -16,6 +16,7 @@ app.use(favicon(path.join(__dirname + '/ui/images/favicon.ico')));
 app.use('/history/pdf', express.static(__dirname + '/ui/pdf/'));
 
 app.get("/news", trestleboard_controller.news);
+app.delete("/news/:id", trestleboard_controller.destroy);
 app.get("/post", trestleboard_controller.manager);
 app.post("/post", trestleboard_controller.post);
 app.get("/officers", officers_controller.officers);
@@ -25,5 +26,6 @@ app.get("/faq", pages_controller.faq);
 app.get("/contact", pages_controller.contact);
 app.get("/links", pages_controller.links);
 app.get("/tour", pages_controller.tour);
+app.get("/404", auth_controller.error);
 
 

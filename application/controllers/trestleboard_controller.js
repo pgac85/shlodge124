@@ -45,3 +45,24 @@ exports.manager = function(req, res) {
         title: 'Spring Hill Masonic Lodge'
     });
 };
+
+exports.destroy = function(req, res) {
+    var passphrase, brother;
+    passphrase = req.body.passphrase;
+    brother = req.body.name;
+    auth.pass(brother, passphrase, function(err, pass) {
+        if (pass === true) {
+            messages.delete(req.params.id, function (err, message) {
+                if (err) {
+                    req.session.errMessages = ["Unable to delete Message!"];
+                } else {
+                    req.session.messages = ["Message deleted!"];
+                }
+                res.redirect('/news/');
+            });
+        } else {
+            req.session.errMessages = ["Incorrect Password!"];
+            return res.redirect("/news/");
+        }
+    });
+};

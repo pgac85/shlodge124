@@ -1,5 +1,5 @@
 html {
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Quattrocento', sans-serif;
   max-width: 950px;
   margin: 5px auto;
 }
@@ -14,26 +14,26 @@ html {
 }
 .c-col h3 {
   text-align: center;
-  font-size: 22pt;
+  font-size: 20pt;
   font-weight: bold;
   font-variant: small-caps;
 }
 .c-col h4 {
-  font-size: 18pt;
+  font-size: 16pt;
   text-align: center;
   font-variant: small-caps;
 }
 .c-col h5 {
   text-align: center;
   font-style: italic;
-  font-size: 12pt;
+  font-size: 10pt;
 }
 .c-col ul li {
   text-align: center;
-  line-height: 25px;
+  line-height: 24px;
   margin-right: 25px;
   list-style: none;
-  font-size: 14pt;
+  font-size: 12pt;
 }
 .c-col a {
   color: #fff;
@@ -71,7 +71,6 @@ html {
   border: 3px groove #bbb;
   border-radius: 6%;
   box-shadow: 2px 2px 6px 1px #000;
-  text-shadow: 1px 1px 2px #000;
 }
 #sign {
   width: 265px;
@@ -161,7 +160,30 @@ select {
 #msg tr td,
 #event tr td {
   text-align: left;
-  padding-left: 15px;
+  padding-left: 10px;
+}
+#msg tr td:last-child,
+#event tr td:last-child {
+  width: 15px;
+  padding-left: 0px;
+}
+#msg tr td:last-child button,
+#event tr td:last-child button {
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("/images/delete.png");
+  background-size: 15px;
+  height: 15px;
+  width: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+#msg tr td:last-child button:hover,
+#event tr td:last-child button:hover {
+  background-image: url("/images/delete2.png");
 }
 #event td {
   text-align: center !important;
@@ -205,7 +227,6 @@ input[type="text"] {
   font-variant: small-caps;
   font-size: 18px;
   box-shadow: 2px 2px 6px 1px #000;
-  text-shadow: 1px 1px 2px #000;
   text-align: center;
   display: block;
   margin-right: auto;
@@ -274,4 +295,12 @@ iframe {
 }
 #flash-alert {
   color: #008000;
+}
+.ui-dialog-content {
+  background: #fff !important;
+}
+#dialog-1 input[type="submit"],
+#dialog-2 input[type="submit"] {
+  float: right;
+  margin-top: 25px;
 }
