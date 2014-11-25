@@ -20,6 +20,7 @@ app.delete("/news/:id", trestleboard_controller.destroy);
 app.get("/post", trestleboard_controller.manager);
 app.post("/post", trestleboard_controller.post);
 app.get("/officers", officers_controller.officers);
+app.put("/officers", officers_controller.update);
 app.get("/", pages_controller.index);
 app.get("/history", pages_controller.history);
 app.get("/faq", pages_controller.faq);

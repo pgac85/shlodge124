@@ -42,6 +42,21 @@ html
 			color:gold;
 	p
 		margin-left:200px
+.cancel-btn
+	float: right
+	margin-right: 30%
+#update_form
+	margin-left: 50px
+	margin-top: 30px
+.form_row
+	padding: 5px
+	input[type="text"],
+	#passphrase
+		margin: 0px 0px 10px 0px
+	label
+		float:left
+		width 200px
+
 .tour,
 .manage
 	margin-left: 355px;
@@ -81,7 +96,7 @@ select
 #msgPost
 	margin: 0px auto;
 
-#msg, #event
+#msg, #event, #officers
 	margin: 30px auto 40px;
 	width: 700px;
 	background: #ffffff
@@ -144,7 +159,17 @@ select
 				button
 					&:hover
 						background-image url('/images/delete2.png')
-
+#officers
+	width: 500px !important
+	margin-top: 85px;
+	tr
+		td:first-child
+			text-align: right
+			font-weight: 800
+			padding-right: 20px
+		td:last-child
+			padding-left: 20px
+			width:220px;
 #event
 	td
 		text-align: center !important
@@ -241,3 +266,20 @@ iframe
 	input[type="submit"]
 		float: right
 		margin-top: 25px;
+
+#opener3
+	float: right
+	margin-top: -60px
+	margin-right: 180px;
+	background-color transparent
+	color transparent
+	border none
+	cursor pointer
+	background-image url('/images/edit_button.png')
+	background-size 20px
+	height: 20px
+	width: 20px
+	background-position center
+	background-repeat no-repeat
+	&:hover
+		background-image url('/images/edit_button2.png')

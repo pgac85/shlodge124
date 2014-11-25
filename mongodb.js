@@ -16,6 +16,7 @@ exports.init = function (onCreate) {
 		console.log("connected to the MongoDB!");
 		exports.messages = db.collection("messages");
 		exports.passport = db.collection("passport");
+		exports.officers = db.collection("officers");
 		return onCreate();
 	});
 };

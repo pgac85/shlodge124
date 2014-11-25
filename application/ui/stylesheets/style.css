@@ -48,6 +48,25 @@ html {
 .c-col p {
   margin-left: 200px;
 }
+.cancel-btn {
+  float: right;
+  margin-right: 30%;
+}
+#update_form {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.form_row {
+  padding: 5px;
+}
+.form_row input[type="text"],
+.form_row #passphrase {
+  margin: 0px 0px 10px 0px;
+}
+.form_row label {
+  float: left;
+  width: 200px;
+}
 .tour,
 .manage {
   margin-left: 355px;
@@ -92,7 +111,8 @@ select {
   margin: 0px auto;
 }
 #msg,
-#event {
+#event,
+#officers {
   margin: 30px auto 40px;
   width: 700px;
   background: #fff;
@@ -106,13 +126,15 @@ select {
   box-shadow: 4px 4px 4px 0px #666;
 }
 #msg tr:first-child,
-#event tr:first-child {
+#event tr:first-child,
+#officers tr:first-child {
   font-weight: 600;
   font-variant: small-caps;
   font-size: 15pt;
 }
 #msg tr:first-child th,
-#event tr:first-child th {
+#event tr:first-child th,
+#officers tr:first-child th {
   color: #fff;
   height: 30px;
   background: #0350a3;
@@ -132,43 +154,52 @@ select {
   padding-bottom: 8px;
 }
 #msg tr:first-child:hover,
-#event tr:first-child:hover {
+#event tr:first-child:hover,
+#officers tr:first-child:hover {
   background-color: transparent;
 }
 #msg tr:nth-child(even),
-#event tr:nth-child(even) {
+#event tr:nth-child(even),
+#officers tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 #msg tr a,
-#event tr a {
+#event tr a,
+#officers tr a {
   display: block;
   width: 100%;
   color: #5b5b5b;
 }
 #msg tr a:hover,
-#event tr a:hover {
+#event tr a:hover,
+#officers tr a:hover {
   color: #e5e5e5;
 }
 #msg tr:hover,
-#event tr:hover {
+#event tr:hover,
+#officers tr:hover {
   background-color: #d6d6d6;
 }
 #msg tr th.ac,
-#event tr th.ac {
+#event tr th.ac,
+#officers tr th.ac {
   text-align: center;
 }
 #msg tr td,
-#event tr td {
+#event tr td,
+#officers tr td {
   text-align: left;
   padding-left: 10px;
 }
 #msg tr td:last-child,
-#event tr td:last-child {
+#event tr td:last-child,
+#officers tr td:last-child {
   width: 15px;
   padding-left: 0px;
 }
 #msg tr td:last-child button,
-#event tr td:last-child button {
+#event tr td:last-child button,
+#officers tr td:last-child button {
   background-color: transparent;
   color: transparent;
   border: none;
@@ -182,8 +213,22 @@ select {
   margin: 0;
 }
 #msg tr td:last-child button:hover,
-#event tr td:last-child button:hover {
+#event tr td:last-child button:hover,
+#officers tr td:last-child button:hover {
   background-image: url("/images/delete2.png");
+}
+#officers {
+  width: 500px !important;
+  margin-top: 85px;
+}
+#officers tr td:first-child {
+  text-align: right;
+  font-weight: 800;
+  padding-right: 20px;
+}
+#officers tr td:last-child {
+  padding-left: 20px;
+  width: 220px;
 }
 #event td {
   text-align: center !important;
@@ -303,4 +348,22 @@ iframe {
 #dialog-2 input[type="submit"] {
   float: right;
   margin-top: 25px;
+}
+#opener3 {
+  float: right;
+  margin-top: -60px;
+  margin-right: 180px;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url("/images/edit_button.png");
+  background-size: 20px;
+  height: 20px;
+  width: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#opener3:hover {
+  background-image: url("/images/edit_button2.png");
 }
