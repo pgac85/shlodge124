@@ -4,7 +4,7 @@
   margin-left: 420px;
 }
 header {
-  min-width: 950px;
+  min-width: 960px;
   background: #00539c;
 /* Old browsers */
   background: -moz-linear-gradient(top, #00539c 0%, #0061b5 25%, #007ce8 50%, #0061b5 75%, #00539c 100%);
@@ -46,7 +46,8 @@ header h2 {
   text-shadow: 1px 1px 1px #bbb;
 }
 nav ul {
-  min-width: 950px;
+  min-width: 960px;
+  margin-left: 10px;
   padding-bottom: 10px;
 }
 nav li {
@@ -99,7 +100,7 @@ nav li a {
 .l-col {
   position: absolute;
   z-index: 2;
-  margin-left: 10px;
+  margin-left: 15px;
   width: 125px;
 }
 .r-col {
@@ -112,7 +113,7 @@ footer.floor {
   position: absolute;
   z-index: 2;
   min-width: 960px;
-  margin-top: 620px;
+  top: 895px;
   height: 36px;
   background: #00539c;
 /* Old browsers */
