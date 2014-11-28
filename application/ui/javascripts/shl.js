@@ -9,29 +9,19 @@ $(function() {
     });
 });
 
-$(function() {
-    var button = $("#opener");
-    $( "#dialog-1" ).dialog({
-        autoOpen: false,
-        hide: { effect: "explode", duration: 500 },
-        show: { effect: "drop", duration: 350 },
-        position: { my: "left-top+20", at: "bottom+55", of: button}
-    });
 
-    button.click(function() {
-        $( "#dialog-1" ).dialog( "open" );
-    });
-});
 $(function() {
-    var button = $("#opener2");
-    $( "#dialog-2" ).dialog({
+    var button = $(".delete");
+    $( "#dialog" ).dialog({
         autoOpen: false,
         hide: { effect: "explode", duration: 500 },
         show: { effect: "drop", duration: 350 },
         position: { my: "left-top+20", at: "bottom+55", of: button}
     });
     button.click(function() {
-        $( "#dialog-2" ).dialog( "open" );
+        var id = $(this).closest('td').find('.id').val();
+        $('.delete-item')[0].setAttribute('action', "/news/" + id + "?_method=DELETE");
+        $( "#dialog" ).dialog( "open" );
     });
 });
 
@@ -51,3 +41,20 @@ $(function() {
 $(function() {
     $("#date").datepicker({dateFormat: 'M dd, yy'});
 });
+
+$(document).ready(function () {
+    eventFields();
+    $("#type").change(function () {
+        eventFields();
+    });
+});
+
+function eventFields() {
+    if ($("#type").val() === "Event") {
+        $("#eventForm").show();
+        $("#msgForm").hide();
+    } else {
+        $("#eventForm").hide();
+        $("#msgForm").show();
+    }
+}

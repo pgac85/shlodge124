@@ -1,0 +1,24 @@
+extends layout
+block content
+    include includes/lodge_template
+    div.c-col
+        h2 Lodge Event Detail
+        #event_show
+            .event_row
+                label Title:
+                .event_field=event.title
+            .event_row
+                label Date:
+                .event_field=event.date
+            .event_row
+                label Details:
+                .event_field=event.details
+            .event_row
+                label Address:
+                .event_field=event.address
+            .event_row
+                label City:
+                .event_field=event.city
+            .event_row
+                label Zip Code:
+                .event_field=event.zipCode

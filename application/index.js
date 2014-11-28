@@ -17,6 +17,7 @@ app.use('/history/pdf', express.static(__dirname + '/ui/pdf/'));
 
 app.get("/news", trestleboard_controller.news);
 app.delete("/news/:id", trestleboard_controller.destroy);
+app.get("/news/:id", trestleboard_controller.show);
 app.get("/post", trestleboard_controller.manager);
 app.post("/post", trestleboard_controller.post);
 app.get("/officers", officers_controller.officers);

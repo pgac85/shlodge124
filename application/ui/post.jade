@@ -4,23 +4,41 @@ block content
     div.c-col
         h2 Trestleboard Manager
         form(class="trestle" action="/post/" name="msgPost" method="POST")
-            table#msgPost
-                tr.simple_row
-                    td
-                        label Message:
-                            input(id="message" name="message"  type="text" size="40" required)
+            #msgPost
+                .post_row
                         label Type:
-                        select(name="type")
+                        select(id="type", name="type" required)
+                            option(selected="selected" value="-1") --------------------
                             option(value="Event" ) Event
                             option(value="Stated Meeting" ) Stated Meeting
                             option(value="Degree Work" ) Degree Work
                             option(value="Lodge Work" ) Lodge Work
                             option(value="Official Visit" ) Official Visit
-                tr.simple_row2
-                    td
-                        label Date:
-                            input(id="date" type="text", name="date" required)
-                        label Password:
-                            input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
-                            input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10" required)
+
+                    #msgForm
+                        .post_row
+                            label Message:
+                            input(id="message" name="message"  type="text" size="40")
+                    #eventForm
+                        .post_row
+                            label Title:
+                            input(id="title" name="title"  type="text" size="30")
+                        .post_row2
+                            label Details:
+                            textarea(id="details" name="details" rows="2" cols="40")
+                        .post_row
+                            label Address:
+                            input(id="address" name="address"  type="text" size="30")
+                        .post_row
+                            label City
+                            input(type="text", name="city")
+                            label Zip Code
+                            input(type="text", name="zipCode", size="10")
+                .post_row
+                    label Date:
+                    input(id="date" type="text", name="date" size="10" required)
+                .post_row
+                    label Password:
+                    input(id="name" type="hidden" name="name" value="Hiram" size="10" maxlength="10")
+                    input(id="passphrase" type="password" name="passphrase" size="10" maxlength="10" required)
             input(type="submit" value="Post" class="post")

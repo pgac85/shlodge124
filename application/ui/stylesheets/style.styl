@@ -133,7 +133,7 @@ select
 			width: 100%
 			color #5b5b5b
 			&:hover
-				color #e5e5e5
+				color #fefefe
 		&:hover
 			background-color #d6d6d6
 		th.ac
@@ -178,13 +178,34 @@ select
 select
 input[type="text"]
 	margin: 20px 20px 0px 10px;
-.simple_row2,
-.simple_row
-	height: 25px;
-.simple_row2
-	float: left;
-	margin-left: 75px;
-	margin-bottom: 25px;
+#event_show
+	width: 550px
+	padding: 25px;
+	margin-left: 175px;
+	border: 1px solid #3b4f71
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
+	-moz-box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
+	box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
+.event_row
+	clear: both
+	height: 26px
+	width: 525px;
+	padding: 8px
+	border-bottom-style: ridge
+	border-width: 1px
+	border-color: #3d3d3d
+	label
+		float:left
+		display block
+		width 100px
+.event_field
+	float:left
+	display block
+	padding-bottom: 10px
+	padding-left: 20px
 .post
 	margin-top: 20px;
 	padding:2px 20px 2px;
@@ -283,3 +304,14 @@ iframe
 	background-repeat no-repeat
 	&:hover
 		background-image url('/images/edit_button2.png')
+.post_row,
+.post_row2
+	margin-left: 175px
+	padding: 5px
+	input
+		padding-left: 5px
+.post_row2
+	margin-top: 10px
+	label
+		float:left
+		padding-right: 10px

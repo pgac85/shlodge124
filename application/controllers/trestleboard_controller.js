@@ -23,11 +23,26 @@ exports.post = function(req, res) {
     brother = req.body.name;
     auth.pass(brother, passphrase, function(err, pass) {
         if (pass === true) {
+            var msg, title;
             message = {};
-            message.msg = req.body.message;
-            message.type = req.body.type;
-            message.date = req.body.date;
-            message.postDate = new Date();
+            msg = req.body.message;
+            title = req.body.title;
+            if (msg) {
+                message.msg = msg;
+                message.type = req.body.type;
+                message.date = req.body.date;
+                message.postDate = new Date();
+            }
+            if (title) {
+                message.title = title;
+                message.details = req.body.details;
+                message.address = req.body.address;
+                message.city = req.body.city;
+                message.zipCode = req.body.zipCode;
+                message.type = req.body.type;
+                message.date = req.body.date;
+                message.postDate = new Date();
+            }
             messages.create(message, function (err, results) {
                 if (err) throw err;
                 req.session.messages = ["Post Successful!"];
@@ -64,5 +79,18 @@ exports.destroy = function(req, res) {
             req.session.errMessages = ["Incorrect Password!"];
             return res.redirect("/news/");
         }
+    });
+};
+exports.show = function(req, res) {
+    messages.findById(req.params.id, function(err, lodg_event) {
+        if (!lodg_event) {
+            res.redirect('/news/');
+        } else {
+            res.render('event', {
+                title: 'Spring Hill Masonic Lodge',
+                event: lodg_event,
+                menuItem: "news"
+            });
+        };
     });
 };
