@@ -10,7 +10,49 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true
             }
         },
+        // Clean
+        clean: {
+            beforeBuild:
+                [   'application/ui/<%= pkg.name %>.min.js',
+                    'application/ui/<%= pkg.name %>.min.css' ],
+            intermediate:
+                [   'application/ui/shlodge.js' ],
+            dev: ['reports/']
+        },
 
+        // CSS min
+        cssmin:{
+            combine:{
+                files: {
+                    'application/ui/<%= pkg.name %>.min.css' :
+                        [	'application/ui/stylesheets/lodge_template.css',
+                            'application/ui/stylesheets/style.css']
+                }
+            }
+        },
+
+        // Concat
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: ['application/ui/javascripts/shl.js'],
+                dest: 'application/ui/<%= pkg.name %>.js'
+            }
+        },
+
+        // Uglify
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                files: {
+                    'application/ui/<%= pkg.name %>.min.js': ['application/ui/<%= pkg.name %>.js']
+                }
+            }
+        },
         // Nodemon
         nodemon: {
             dev: {
@@ -45,9 +87,9 @@ module.exports = function(grunt) {
         watch: {
             dev: {
                 files: [
-                    'application/ui/**/*.jade',
+                    'application/ui/*.jade',
                     'application/ui/stylesheets/*.styl',
-                    'appplication/ui/javascripts/*.js',
+                    'application/ui/javascripts/*.js',
                     '.rebooted'
                 ],
                 options: {
@@ -61,6 +103,7 @@ module.exports = function(grunt) {
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     //Default Task(s)
+    grunt.registerTask('prod', ['clean:beforeBuild', 'cssmin', 'concat', 'uglify', 'clean:intermediate']);
     grunt.registerTask('dev', ['concurrent:dev']);
 
 };
