@@ -1,5 +1,6 @@
 var messages = require("../../repos/messages");
 var auth = require('./auth_controller');
+var helpers = require('../../lib/helper');
 
 exports.news = function(req, res) {
     var type1, type2;
@@ -57,7 +58,8 @@ exports.post = function(req, res) {
 
 exports.manager = function(req, res) {
     res.render('post', {
-        title: 'Spring Hill Masonic Lodge'
+        title: 'Spring Hill Masonic Lodge',
+        states: helpers.statesForSelect()
     });
 };
 
@@ -86,11 +88,42 @@ exports.show = function(req, res) {
         if (!lodg_event) {
             res.redirect('/news/');
         } else {
+            var fullAddress = messages.fullAddress(lodg_event);
             res.render('event', {
                 title: 'Spring Hill Masonic Lodge',
+                fullAddress: fullAddress,
+                states: helpers.statesForSelect(),
                 event: lodg_event,
                 menuItem: "news"
             });
         };
+    });
+};
+
+exports.update = function(req, res) {
+    var brother, passphrase, id, event;
+    brother = req.body.brother;
+    passphrase = req.body.passphrase;
+    auth.pass(brother, passphrase, function(err, pass) {
+        if (pass === true) {
+            if (req.body.state === "-1") {
+                delete req.body.state;
+            }
+            delete req.body.brother;
+            delete req.body.passphrase;
+            id = req.body.id;
+            event = req.body;
+            messages.updateEvent(id, event, function (err, results) {
+                if (err) {
+                    req.session.errMessages = ["Unable to update Event!"];
+                } else {
+                    req.session.messages = ["Event updated."];
+                }
+                res.redirect("/news/" + req.params.id);
+            });
+        } else {
+            req.session.errMessages = ["Incorrect Password!"];
+            return res.redirect("/news/" + req.params.id);
+        }
     });
 };

@@ -57,6 +57,27 @@ exports.create = function(message, cb) {
     });
 };
 
+exports.updateEvent = function(id, event, cb) {
+	if (isValid(id)) {
+		eventId = new bson.ObjectID(id)
+	} else {
+		console.error("Invalid Application Id Entered");
+		return cb(null);
+	}
+	db.messages.update({
+		_id: eventId
+	}, {
+		$set: event
+	}, {
+		safe: true
+	}, function(err, results) {
+		if (err) {
+			return cb(err);
+		}
+		return cb(null, results);
+	});
+};
+
 exports.delete = function(id, cb) {
 	return findById(id, function(err, message) {
 		if (err) {
@@ -86,4 +107,12 @@ isValid = function(id) {
 		if (typeof id == 'string' && id.length == 24) return checkForHexRegExp.test(id);
 		return true;
 	}
+};
+
+exports.fullAddress = function(event) {
+	var text;
+	text = [event.address, event.city, event.state, event.zipCode].filter(function(val) {
+		return val;
+	}).join(", ");
+	return text;
 };

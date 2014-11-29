@@ -4,7 +4,7 @@
  */
 $(function() {
     $('.cancel-btn').click(function() {
-        $( "#dialog-3" ).dialog( "close" );
+        $( "#dialog-3").dialog( "close" );
         return false;
     });
 });
@@ -26,7 +26,7 @@ $(function() {
 });
 
 $(function() {
-    var button = $("#opener3");
+    var button = $("#officer_update");
     $( "#dialog-3" ).dialog({
         autoOpen: false,
         hide: { effect: "explode", duration: 500 },
@@ -37,6 +37,25 @@ $(function() {
         $( "#dialog-3" ).dialog( "open" );
     });
 });
+$(function() {
+    var button = $("#event_update");
+    $( "#dialog_event" ).dialog({
+        autoOpen: false,
+        hide: { effect: "explode", duration: 500 },
+        show: { effect: "drop", duration: 350 },
+        width: 675
+    });
+    button.click(function() {
+        $( "#dialog_event" ).dialog( "open" );
+    });
+});
+$(function() {
+    $('.cancel-btn').click(function() {
+        $( "#dialog_event").dialog( "close" );
+        return false;
+    });
+});
+
 //DatePicker
 $(function() {
     $("#date").datepicker({dateFormat: 'M dd, yy'});

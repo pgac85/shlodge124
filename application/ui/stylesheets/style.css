@@ -60,6 +60,7 @@ html {
   padding: 5px;
 }
 .form_row input[type="text"],
+.form_row select,
 .form_row #passphrase {
   margin: 0px 0px 10px 0px;
 }
@@ -251,7 +252,8 @@ input[type="text"] {
   -moz-box-shadow: 4px 4px 4px 0px #666;
   box-shadow: 4px 4px 4px 0px #666;
 }
-.event_row {
+.event_row,
+.event_row2 {
   clear: both;
   height: 26px;
   width: 525px;
@@ -260,16 +262,27 @@ input[type="text"] {
   border-width: 1px;
   border-color: #3d3d3d;
 }
-.event_row label {
+.event_row label,
+.event_row2 label {
   float: left;
   display: block;
-  width: 100px;
+  width: 80px;
 }
 .event_field {
   float: left;
   display: block;
   padding-bottom: 10px;
   padding-left: 20px;
+}
+.event_row2 {
+  height: 45px;
+}
+.event_row2 label {
+  width: 100px;
+}
+.event_textarea {
+  overflow-y: scroll;
+  overflow-scrolling: touch;
 }
 .post {
   margin-top: 20px;
@@ -372,10 +385,9 @@ iframe {
   float: right;
   margin-top: 25px;
 }
-#opener3 {
+#event_update,
+#officer_update {
   float: right;
-  margin-top: -60px;
-  margin-right: 180px;
   background-color: transparent;
   color: transparent;
   border: none;
@@ -387,8 +399,17 @@ iframe {
   background-position: center;
   background-repeat: no-repeat;
 }
-#opener3:hover {
+#event_update:hover,
+#officer_update:hover {
   background-image: url("/images/edit_button2.png");
+}
+#officer_update {
+  margin-top: -60px;
+  margin-right: 180px;
+}
+#event_update {
+  margin-top: -20px;
+  margin-right: 140px;
 }
 .post_row,
 .post_row2 {

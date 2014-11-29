@@ -32,6 +32,12 @@ block content
                         .post_row
                             label City
                             input(type="text", name="city")
+                        .post_row
+                            label State
+                            select(name="state")
+                                option(selected="selected" value="-1") ---------------
+                                for state in states
+                                    option(value=state.abbr)= state.name
                             label Zip Code
                             input(type="text", name="zipCode", size="10")
                 .post_row

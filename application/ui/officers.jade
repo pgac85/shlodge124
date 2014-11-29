@@ -10,7 +10,7 @@ block content
 					tr
 						td=chair.title+" :"
 						td=chair.name
-		button(id="opener3")
+		button(id="officer_update")
 		div(id="dialog-3", title="Officer Update")
 			form(id="update-officer", action="/officers/?_method=PUT", method="POST")
 				each officer in officers

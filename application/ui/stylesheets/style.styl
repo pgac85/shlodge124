@@ -51,6 +51,7 @@ html
 .form_row
 	padding: 5px
 	input[type="text"],
+	select,
 	#passphrase
 		margin: 0px 0px 10px 0px
 	label
@@ -189,7 +190,8 @@ input[type="text"]
 	-webkit-box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
 	-moz-box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
 	box-shadow: 4px 4px 4px 0px rgba(102,102,102,1);
-.event_row
+.event_row,
+.event_row2
 	clear: both
 	height: 26px
 	width: 525px;
@@ -200,12 +202,19 @@ input[type="text"]
 	label
 		float:left
 		display block
-		width 100px
+		width 80px
 .event_field
 	float:left
 	display block
 	padding-bottom: 10px
 	padding-left: 20px
+.event_row2
+	height: 45px;
+	label
+		width: 100px
+.event_textarea
+	overflow-y: scroll;
+	overflow-scrolling: touch
 .post
 	margin-top: 20px;
 	padding:2px 20px 2px;
@@ -287,11 +296,9 @@ iframe
 	input[type="submit"]
 		float: right
 		margin-top: 25px;
-
-#opener3
+#event_update,
+#officer_update
 	float: right
-	margin-top: -60px
-	margin-right: 180px;
 	background-color transparent
 	color transparent
 	border none
@@ -304,6 +311,12 @@ iframe
 	background-repeat no-repeat
 	&:hover
 		background-image url('/images/edit_button2.png')
+#officer_update
+	margin-top: -60px
+	margin-right: 180px;
+#event_update
+	margin-top: -20px
+	margin-right: 140px;
 .post_row,
 .post_row2
 	margin-left: 175px
