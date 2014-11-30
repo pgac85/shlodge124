@@ -24,6 +24,8 @@ exports.post = function(req, res) {
     brother = req.body.name;
     auth.pass(brother, passphrase, function(err, pass) {
         if (pass === true) {
+            delete req.body.passphrase;
+            delete req.body.name;
             var msg, title;
             message = {};
             msg = req.body.message;

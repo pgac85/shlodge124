@@ -99,13 +99,13 @@ nav li a {
 }
 .l-col {
   position: absolute;
-  z-index: 2;
+  z-index: -1;
   margin-left: 15px;
   width: 125px;
 }
 .r-col {
   position: absolute;
-  z-index: 2;
+  z-index: -1;
   margin-left: 875px;
   width: 125px;
 }
