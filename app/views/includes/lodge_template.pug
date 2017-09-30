@@ -1,0 +1,59 @@
+
+body
+	header
+		img(id="logo" src="/images/logo.png" alt="logo")
+		h1 Spring Hill Masonic Lodge #124
+		h2 3630 Greens Mill Road Spring Hill, TN 37174
+		nav
+			ul
+				li
+					if (menuItem == "home")
+						a(href='/', class='selected') Home
+					else
+						a(href='/') Home
+				li
+					if (menuItem == "news")
+						a(href='/news/', class='selected') News
+					else
+						a(href='/news/') News
+				li
+					if (menuItem == "history")
+						a(href='/history/', class='selected') History
+					else
+						a(href='/history/') History
+				li
+					if (menuItem == "officers")
+						a(href='/officers/', class='selected') Officers
+					else
+						a(href='/officers/') Officers
+				li
+					if (menuItem == "faq")
+						a(href='/faq/', class='selected') F.A.Q.
+					else
+						a(href='/faq/') F.A.Q.
+				li
+					if (menuItem == "contact")
+						a(href='/contact/', class='selected') Contact Us
+					else
+						a(href='/contact/') Contact Us
+				li
+					if (menuItem == "links")
+						a(href='/links/', class='selected') Links
+					else
+						a(href='/links/') Links
+	div.col-cont
+		if (errMessages)
+			div#error-alert
+				for message in errMessages
+					span= message
+		if (messages)
+			div#flash-alert
+				for message in messages
+					span= message
+		div.l-col
+			img(id="pillar" src="/images/pillarr.png" alt="pillar")
+
+		div.r-col
+			img(id="pillar" src="/images/pillarl.png" alt="pillar")
+
+	footer.floor

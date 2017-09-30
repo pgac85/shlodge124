@@ -1,0 +1,35 @@
+var express = require('express');
+var favicon = require('serve-favicon');
+var path = require('path');
+// controllers
+var auth_controller = require('./controllers/auth_controller');
+var trestleboard_controller = require('./controllers/trestleboard_controller');
+var officers_controller = require('./controllers/officers_controller');
+var pages_controller = require('./controllers/pages_controller');
+
+
+var app = module.exports = express.Router()
+
+app.use('/history/pdf', express.static(__dirname + '/app/views/pdf/'));
+app.get("/news", trestleboard_controller.news);
+app.delete("/news/:id", trestleboard_controller.destroy);
+app.get("/news/:id", trestleboard_controller.show);
+app.put("/news/:id", trestleboard_controller.update);
+app.get("/post", trestleboard_controller.manager);
+app.post("/post", trestleboard_controller.post);
+app.get("/officers", officers_controller.officers);
+app.put("/officers", officers_controller.update);
+app.get("/", pages_controller.index);
+app.get("/history", pages_controller.history);
+app.get("/faq", pages_controller.faq);
+app.get("/contact", pages_controller.contact);
+app.get("/links", pages_controller.links);
+app.get("/tour", pages_controller.tour);
+app.get("/404", auth_controller.error);
+
+
+app.get('/pdf', function(req, res){
+  var fileName = req.query.title === 'pm1' ? 'PastMastersI.pdf' : 'PastMastersII.pdf'
+  var file = __dirname + '/pdf/'+ fileName;
+  res.download(file); // Set disposition and send it.
+});
