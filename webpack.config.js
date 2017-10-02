@@ -9,6 +9,10 @@ const promise = require.resolve('promise/polyfill.js')
 const hot = path.resolve('lib/middleware/assets.js')
 const app = path.resolve('app/javascripts/index.js')
 
+const reScript = /\.m?jsx?$/;
+const reStyle = /\.(css|less|scss|sss)$/;
+const reImage = /\.(bmp|gif|jpe?g|png|svg)$/;
+
 module.exports = (options) => {
   if (!options || typeof options === 'string') options = {dev: options === 'dev'}
   options = Object.assign({}, options)
@@ -28,9 +32,18 @@ module.exports = (options) => {
   const isoPlugin = new WebpackIsomorphicToolsPlugin(wpisocfg.options).development(options.dev)
 
   const cssLoader = {
-    test: /\.css$/,
-    exclude: /node_modules/,
-    use: ['style-loader', 'css-loader'],
+    include: path.resolve(__dirname, '../app'),
+    loader: 'css-loader',
+    options: {
+      importLoaders: 1,
+      sourceMap: options.dev,
+      modules: true,
+      localIdentName: options.dev
+        ? '[name]-[local]-[hash:base64:5]'
+        : '[hash:base64:5]',
+      minimize: !options.dev,
+      discardComments: { removeAll: true },
+    },
   }
 
   const stylusLoader = {
@@ -79,7 +92,7 @@ module.exports = (options) => {
     include: /images\/head/,
     loaders: [{loader: 'file'}]
   }
-  const loaders = [
+  const rules = [
     cssLoader,
     stylusLoader,
     jsonLoader,
@@ -137,7 +150,7 @@ module.exports = (options) => {
       pathinfo: options.dev,
       publicPath: options.publicPath
     }),
-    module: {loaders},
+    module: {rules},
     plugins
   }
 }

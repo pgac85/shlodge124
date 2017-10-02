@@ -1,4 +1,11 @@
 .DS_Store
+npm-debug.log
+/node_modules/*
+/build
+/tmp
+/webpack-*.json
+/.node-version
+/.env*
 lib-cov
 *.seed
 *.log
@@ -12,7 +19,3 @@ lib-cov
 pids
 logs
 results
-
-npm-debug.log
-node_modules
-static_files
