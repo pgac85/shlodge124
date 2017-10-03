@@ -28,10 +28,13 @@ var errors = require('./lib/middleware/errors.js')
 app.use((req, res, next) => next(new errors.NotFoundError()))
 app.use(errors.handler)
 
+const port = process.env.NODE_ENV === 'production' ? process.env.OPENSHIFT_NODEJS_PORT || 8080 : 3000
+const ip   = process.env.NODE_ENV === 'production' ? process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0' : '0.0.0.0'
+
 app.start = function (done) {
   async.parallel([
     mongodb.init,
-    done => app.server = app.listen(3000, done)
+    done => app.server = app.listen(port, ip, done)
   ], done)
 }
 
@@ -62,6 +65,7 @@ if (process.mainModule === module) {
       process.exit(1)
     }
     console.log('started')
+    console.log("Express server listening on port " + port)
   })
 }
 
