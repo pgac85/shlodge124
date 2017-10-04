@@ -2,7 +2,6 @@
 npm-debug.log
 /node_modules/*
 /tmp
-/webpack-*.json
 /.node-version
 /.env*
 lib-cov
